@@ -4,12 +4,10 @@
 	<meta charset="utf-8">
 	<title></title>
 	
-  <script type="module" crossorigin src="/assets/blog.76d9c0fb.js"></script>
-    <link rel="modulepreload" href="/assets/tailwind.d9b894b0.js">
-    <link rel="stylesheet" href="/assets/tailwind.f1707716.css">
-  </head>
+  <link rel="stylesheet" href="./assets/tailwind.4057243c.css">
+</head>
 <body class="font-serif">
-	<div class="w-full h-screen bg-gray-100">
+	<div class="w-full min-h-screen bg-gray-100">
 		<div class="w-full bg-dark px-4 xl:px-0">
 			<div class="max-w-7xl mx-auto flex items-center justify-between py-3 z-10">
 				<a href="./index.html" title="Vojislav Dragicevic">
@@ -18,12 +16,24 @@
 				<nav class="flex text-white md:text-lg font-bold">
 					<a href="./index.html#about" class="mx-4 hover:text-primary" title="About">About</a>
 					<a href="./index.html#projects" class="mx-4 hover:text-primary" title="Projects">Projects</a>
-					<a href="./blog.html" class="mx-4 hover:text-primary" title="Blog">Blog</a>
+					<a href="./articles.html" class="mx-4 hover:text-primary" title="Articles">Articles</a>
 					<a href="./index.html#contact" class="mx-4 hover:text-primary" title="Contact">Contact</a>
 				</nav>
 			</div>
 		</div>
-		<p class="text-center text-3xl mt-24">Coming soon...</p>
+		<div class="max-w-6xl mx-auto flex flex-col items-center justify-center py-12">
+			<h1 class="w-full md:w-3/4 lg:w-2/3 px-8 md:px-0 text-4xl font-bold py-8 text-gray-900">Articles</h1>
+			<div class="w-full md:w-3/4 lg:w-2/3 px-8 md:px-0 flex flex-col space-y-8">
+				<a 
+					href="./dev_env_laravel.html" 
+					class="w-full bg-white text-primary hover:text-primary-dark border border-gray-200 px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 duration-150"
+					title="Setup Dev Enviroment For Laravel On Ubuntu 20.04 (LEMP + Redis, Mailhog, Minio, Ngrok)"
+				>
+					<span class="text-sm text-gray-700">Feb 14, 2022</span>
+					<h2 class="text-2xl font-bold capitalize">Setup Dev Enviroment For Laravel On Ubuntu 20.04 (LEMP + Redis, MailHog, Minio, Ngrok)</h2>
+				</a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
