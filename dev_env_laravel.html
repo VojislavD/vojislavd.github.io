@@ -31,7 +31,7 @@
 		</div>
 		<div class="max-w-6xl mx-auto flex flex-col items-center justify-center py-12">
 			<div class="w-full md:w-3/4 lg:w-2/3 px-8 md:px-0 py-8 text-gray-900 space-y-1">
-				<h1 class="text-4xl font-bold">Setup Dev Environment For Laravel On Ubuntu 20.04 (LEMP + Redis, MailHog, Minio, Ngrok)</h1>
+				<h1 class="text-4xl font-bold">Setup Dev Environment For Laravel On Ubuntu 20.04 (<a href="#lemp">LEMP</a> + <a href="#redis">Redis</a>, <a href="#mailhog">MailHog</a>, <a href="#minio">Minio</a>, <a href="#ngrok">Ngrok</a>)</h1>
 				<p class="text-gray-700">Feb 14, 2022</p>
 			</div>
 
@@ -46,7 +46,7 @@
 					<p>You should already have installed Ubuntu 20.04 server or desktop.</p>
 				</div>
 
-				<div class="space-y-4">
+				<div class="space-y-4" id="lemp">
 					<h2 class="text-2xl font-bold">Installing PHP</h2>
 					<p>First we will install PHP and after that we will install all extensions that are required to run Laravel.</p>
 					<p class="italic text-lg"><span class="font-bold">Note:</span> We will install PHP version 8.1, which is latest version in time when this article is written. If you want to install some other version replace 'php8.1' with the version you want, e.g. php7.4</p>
@@ -386,7 +386,7 @@
 					</div>
 				</div>
 
-				<div class="space-y-4">
+				<div class="space-y-4" id="redis">
 					<h2 class="text-2xl font-bold">Installing Redis</h2>
 					<p>It's not necessary, but I can highly recommend installing a Redis database also, especially if you plan to use some of the advanced features of Laravel framework, like Queues.</p>
 					<p>If you don't need or want to use Redis, just skip this section.</p>
@@ -572,7 +572,7 @@
 						<li>REDIS_PORT=6379</li>
 					</ul>
 				</div>
-				<div class="space-y-4">
+				<div class="space-y-4" id="mailhog">
 					<h2 class="text-2xl font-bold">Installing MailHog</h2>
 					<p>To test email sending from your application, you can use fake SMTP server like MailHog.</p>
 					<p>For this package to work, you should have installed "golang" programming language. To install it run command:</p>
@@ -606,7 +606,7 @@
 						<li>MAIL_FROM_NAME="${APP_NAME}"</li>
 					</ul>
 				</div>
-				<div class="space-y-4">
+				<div class="space-y-4" id="minio">
 					<h2 class="text-2xl font-bold">Installing Minio</h2>
 					<p>Minio is high performance object storage with API compatible with Amazon S3. It's great option if you want to test a file uploading with Amazon S3 disk.</p>
 					<p>Get Minio with command:</p>
@@ -640,7 +640,7 @@
 						<li>AWS_USE_PATH_STYLE_ENDPOINT=true</li>
 					</ul>
 				</div>
-				<div class="space-y-4">
+				<div class="space-y-4" id="ngrok">
 					<h2 class="text-2xl font-bold">Installing Ngrok</h2>
 					<p>If you want to share your application with someone, you can create public URL with Ngrok.</p>
 					<p>First download and install Ngrok:</p>
