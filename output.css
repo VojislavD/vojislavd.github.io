@@ -594,6 +594,7 @@ video {
 .code_block {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   --tw-bg-opacity: 1;
   background-color: rgb(37 37 38 / var(--tw-bg-opacity, 1));
   padding: 1rem;
