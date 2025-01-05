@@ -1,16 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWPENQQPRR"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'G-DWPENQQPRR');
-	</script>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Create a Self-Signed SSL Certificate for Local Development With Nginx">
 	<meta name="keywords" content="self-signed, ssl, certificate, nginx, ubuntu, linux">
 	<meta name="robots" content="index,follow">
@@ -18,245 +10,219 @@
 	<title>Create a Self-Signed SSL Certificate for Local Development With Nginx</title>
 
 	<link rel="alternate" href="https://www.vojislavd.com/self_signed_ssl.html" hreflang="en-us">
-	<link rel="icon" href="data:image/png;base64,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" type="image/png">
-	
-	
-  <link rel="stylesheet" href="./assets/tailwind.b8ea7fec.css">
+	<link rel="icon" href="./images/logo.png" type="image/png">
+    <link href="./output.css" rel="stylesheet">
 </head>
-<body class="font-serif">
-	<div class="w-full min-h-screen bg-gray-100">
-		<div class="w-full bg-dark px-4 xl:px-0">
-			<div class="max-w-7xl mx-auto flex items-center justify-between py-3 z-10">
-				<a href="./index.html" title="Vojislav Dragicevic">
-					<img class="w-12 md:w-16" src="data:image/png;base64,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" alt="Logo">
-				</a>
-				<nav class="flex text-white md:text-lg font-bold">
-					<a href="./index.html#home" class="mx-4 hover:text-primary" title="Home">Home</a>
-					<a href="./blog.html" class="mx-4 hover:text-primary" title="Blog">Blog</a>
-				</nav>
-			</div>
-		</div>
-		<div class="max-w-6xl mx-auto flex flex-col items-center justify-center py-12">
-			<div class="w-full md:w-3/4 lg:w-2/3 px-8 md:px-0 py-8 text-gray-900 space-y-1">
-				<h1 class="text-4xl font-bold">Create a Self-Signed SSL Certificate for Local Development With Nginx</h1>
-				<p class="text-gray-700">Apr 29, 2022</p>
-			</div>
+<body class="bg-slate-50 font-mono">
+    <div class="min-h-screen max-w-3xl mx-auto flex flex-col px-4">
+        <header class="h-12 flex items-center">
+            <a href="./index.html" class="flex items-center text-sm font-bold text-primary  space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M18 10a.75.75 0 0 1-.75.75H4.66l2.1 1.95a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 1 1 1.02 1.1l-2.1 1.95h12.59A.75.75 0 0 1 18 10Z" clip-rule="evenodd" /></svg>
+                <span>Home</span>  
+            </a>
+        </header>
+        <main class="main_article">
+            <article>
+                <h1 class="article_title">Create a Self-Signed SSL Certificate for Local Development With Nginx</h1>
+                <span class="article_date">Apr 29, 2022</span>
 
-			<div class="w-full md:w-3/4 lg:w-2/3 px-8 md:px-0 text-xl space-y-12">
-
-				<div class="space-y-4">
+                <div class="article_section">
                     <p>We'll create a self-signed SSL certificate on a Linux machine which we can use for local development with Nginx.</p>
 
                     <p class="italic">
                         <span class="font-bold">Note:</span> This is only for local development, do not use a self-signed SSL certificate on any publicly accessible website.
                     </p>
-				
-				</div>
+                
+                </div>
 
-				<div class="space-y-4">
-					<h2 class="text-2xl font-bold">Create a self-signed SSL certificate</h2>
+                <div class="article_section">
+                    <h2 class="article_section_title">Create a self-signed SSL certificate</h2>
 
-					<p>First, we'll create a new directory where will be stored all the required files for this certificate.</p>
+                    <p>First, we'll create a new directory where will be stored all the required files for this certificate.</p>
 
-					<div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50">
-							<span>sudo mkdir /etc/ssl/self-signed-cert</span>
-						</code>
-					</div>
+                    <div class="code_block">
+                        <span>sudo mkdir /etc/ssl/self-signed-cert</span>
+                    </div>
 
-					<p>We'll create an SSL key encrypted with 2048 bits.</p>
+                    <p>We'll create an SSL key encrypted with 2048 bits.</p>
 
-					<div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50">
-							<span>sudo openssl genrsa -out "/etc/ssl/self-signed-cert/self-signed-cert.key" 2048</span>
-						</code>
-					</div>
+                    <div class="code_block">
+                        <span>sudo openssl genrsa -out "/etc/ssl/self-signed-cert/self-signed-cert.key" 2048</span>
+                    </div>
 
                     <p>Next, create a certificate sign request with the key we just created.</p>
 
-                    <div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50">
-							<span>sudo openssl req -new -key "/etc/ssl/self-signed-cert/self-signed-cert.key" -out "/etc/ssl/self-signed-cert/self-signed-cert.csr"</span>
-						</code>
-					</div>
+                    <div class="code_block">
+                        <span>sudo openssl req -new -key "/etc/ssl/self-signed-cert/self-signed-cert.key" -out "/etc/ssl/self-signed-cert/self-signed-cert.csr"</span>
+                    </div>
 
                     <p>After this, you will be prompted to enter some information like country name, state or province name, locality name, etc.</p>
 
                     <p>You can enter your information here, for example:</p>
 
-                    <div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50 flex flex-col">
-                            <span>Country Name: SR</span>
-                            <span>State or Province name: Serbia</span>
-                            <span>Locality Name: Belgrade</span>    
-                            <span>Organization Name: Self Signed SSL Certificate</span>
-                            <span>Organizationl Unit Name:</span>
-                            <span>Common Name:</span>
-                            <span>Email Address:</span>
-                            <span>A challendge password:</span>
-                            <span>An optional company name:</span>
-						</code>
-					</div>
+                    <div class="code_block">
+                        <span>Country Name: SR</span>
+                        <span>State or Province name: Serbia</span>
+                        <span>Locality Name: Belgrade</span>    
+                        <span>Organization Name: Self Signed SSL Certificate</span>
+                        <span>Organizationl Unit Name:</span>
+                        <span>Common Name:</span>
+                        <span>Email Address:</span>
+                        <span>A challendge password:</span>
+                        <span>An optional company name:</span>
+                    </div>
                     
                     <p>The last step is to create a certificate itself with the request and key we just created.</p>
 
                     
-                    <div class="w-full bg-terminal text-base p-4">
-                        <code class="text-gray-50">
-                            <span>sudo openssl x509 -req -days 365 -in "/etc/ssl/self-signed-cert/self-signed-cert.csr" -signkey "/etc/ssl/self-signed-cert/self-signed-cert.key" -out "/etc/ssl/self-signed-cert/self-signed-cert.crt"</span>
-						</code>
-					</div>
+                    <div class="code_block">
+                        <span>sudo openssl x509 -req -days 365 -in "/etc/ssl/self-signed-cert/self-signed-cert.csr" -signkey "/etc/ssl/self-signed-cert/self-signed-cert.key" -out "/etc/ssl/self-signed-cert/self-signed-cert.crt"</span>
+                    </div>
 
                     <p>In this example, the certificate we created will be valid for 1 year (365 days), if you want you can change this per your need.</p>
 
-					<p>That's it. Our self-signed SSL certificate is created.</p>
+                    <p>That's it. Our self-signed SSL certificate is created.</p>
 
-				</div>
+                </div>
 
-				<div class="space-y-4">
-					<h2 class="text-2xl font-bold">Configure Nginx to use this certificate</h2>
+                <div class="article_section">
+                    <h2 class="article_section_title">Configure Nginx to use this certificate</h2>
 
                     <p>To configure an HTTPS server, the SSL parameter must be enabled on listening sockets in the server block, and the locations of the server certificate and private key files should be specified.</p>
 
                     <p>Open the Nginx configuration file for a project where you want to use this certificate.</p>
 
-					<div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50">
-							<span>sudo vim /etc/nginx/sites-available/my-app.test</span>
-						</code>
-					</div>
+                    <div class="code_block">
+                        <span>sudo vim /etc/nginx/sites-available/my-app.test</span>
+                    </div>
 
                     <p>Enable SSL on the listening socket and specified the location of the certificate and private key files.</p>
 
-                    <div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50 flex flex-col">
-                            <span>server {</span>
-                            <span class="ml-12 flex">
-                                <span class="w-56">listen</span>
-                                <span>443 ssl;</span>
-                            </span>
-                            <span class="ml-12 flex">
-                                <span class="w-56">ssl_certificate</span>
-                                <span>/etc/ssl/self-signed-cert/self-signed-cert.crt</span>
-                            </span>
-                            <span class="ml-12 flex">
-                                <span class="w-56">ssl_certificate_key</span>
-                                <span>/etc/ssl/self-signed-cert/self-signed-cert.key</span>
-                            </span>
-                            <span>}</span>
-                        </code>
-					</div>
+                    <div class="code_block">
+                        <span>server {</span>
+                        <span class="code_indent_lvl_1 flex">
+                            <span class="w-56">listen</span>
+                            <span>443 ssl;</span>
+                        </span>
+                        <span class="code_indent_lvl_1 flex">
+                            <span class="w-56">ssl_certificate</span>
+                            <span>/etc/ssl/self-signed-cert/self-signed-cert.crt</span>
+                        </span>
+                        <span class="code_indent_lvl_1 flex">
+                            <span class="w-56">ssl_certificate_key</span>
+                            <span>/etc/ssl/self-signed-cert/self-signed-cert.key</span>
+                        </span>
+                        <span>}</span>
+                    </div>
 
                     <p>For example, the Nginx config file will look like this after you added those lines:</p>
 
-                    <div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50 flex flex-col">
-                            <span>server {</span>
-                                <span class="ml-12">listen 80;</span>
-                                <span class="ml-12">listen [::]:80;</span>
-                                <span class="ml-12">
-                                    <span>listen 443 ssl;</span>
-                                    <span class="text-gray-500">// new line</span>
-                                </span>
-                                                            
-                                <br>
+                    <div class="code_block">
+                        <span>server {</span>
+                            <span class="code_indent_lvl_1">listen 80;</span>
+                            <span class="code_indent_lvl_1">listen [::]:80;</span>
+                            <span class="code_indent_lvl_1">
+                                <span>listen 443 ssl;</span>
+                                <span class="code_terminal_output">// new line</span>
+                            </span>
+                                                        
+                            <br>
 
-                                <span class="ml-12">server_name my-app.test www.my-app.test;</span>
-                                <span class="ml-12">root /home/vojislav/code/my-app.test/public;</span>
-                                
-                                <br>
-                                
-                                <span class="ml-12">add_header X-Frame-Options "SAMEORIGIN";</span>
-                                <span class="ml-12">add_header X-Content-Type-Options "nosniff";</span>
+                            <span class="code_indent_lvl_1">server_name my-app.test www.my-app.test;</span>
+                            <span class="code_indent_lvl_1">root /home/vojislav/code/my-app.test/public;</span>
+                            
+                            <br>
+                            
+                            <span class="code_indent_lvl_1">add_header X-Frame-Options "SAMEORIGIN";</span>
+                            <span class="code_indent_lvl_1">add_header X-Content-Type-Options "nosniff";</span>
 
-                                <br>
+                            <br>
 
-                                <span class="ml-12">
-                                    <span>ssl_certificate /etc/ssl/self-signed-cert/self-signed-cert.crt;</span>
-                                    <span class="text-gray-500">// new line</span>
-                                </span>
-                                <span class="ml-12">
-                                    <span>ssl_certificate_key /etc/ssl/self-signed-cert/self-signed-cert.key;</span>
-                                    <span class="text-gray-500">// new line</span>
-                                </span>
+                            <span class="code_indent_lvl_1">
+                                <span>ssl_certificate /etc/ssl/self-signed-cert/self-signed-cert.crt;</span>
+                                <span class="code_terminal_output">// new line</span>
+                            </span>
+                            <span class="code_indent_lvl_1">
+                                <span>ssl_certificate_key /etc/ssl/self-signed-cert/self-signed-cert.key;</span>
+                                <span class="code_terminal_output">// new line</span>
+                            </span>
 
-                                <br>
+                            <br>
 
-                                <span class="ml-12">index index.php;</span>
+                            <span class="code_indent_lvl_1">index index.php;</span>
 
-                                <br>
+                            <br>
 
-                                <span class="ml-12">charset utf-8;</span>
-                                
-                                <br>
-                        
-                                <span class="ml-12">location / {</span>
-                                    <span class="ml-24">try_files $uri $uri/ /index.php?$query_string;</span>
-                                <span class="ml-12">}</span>
-                                        
-                                <br>
-                                
-                                <span class="ml-12">location = /favicon.ico { access_log off; log_not_found off; }</span>
-                                <span class="ml-12">location = /robots.txt  { access_log off; log_not_found off; }</span>
-                                
-                                <br>
-                                
-                                <span class="ml-12">error_page 404 /index.php;</span>
-                                
-                                <br>
+                            <span class="code_indent_lvl_1">charset utf-8;</span>
+                            
+                            <br>
+                    
+                            <span class="code_indent_lvl_1">location / {</span>
+                                <span class="code_indent_lvl_2">try_files $uri $uri/ /index.php?$query_string;</span>
+                            <span class="code_indent_lvl_1">}</span>
+                                    
+                            <br>
+                            
+                            <span class="code_indent_lvl_1">location = /favicon.ico { access_log off; log_not_found off; }</span>
+                            <span class="code_indent_lvl_1">location = /robots.txt  { access_log off; log_not_found off; }</span>
+                            
+                            <br>
+                            
+                            <span class="code_indent_lvl_1">error_page 404 /index.php;</span>
+                            
+                            <br>
 
-                                <span class="ml-12">location ~ \.php$ {</span>
-                                    <span class="ml-24">fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;</span>
-                                    <span class="ml-24">fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;</span>
-                                    <span class="ml-24">include fastcgi_params;</span>
-                                <span class="ml-12">}</span>
+                            <span class="code_indent_lvl_1">location ~ \.php$ {</span>
+                                <span class="code_indent_lvl_2">fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;</span>
+                                <span class="code_indent_lvl_2">fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;</span>
+                                <span class="code_indent_lvl_2">include fastcgi_params;</span>
+                            <span class="code_indent_lvl_1">}</span>
 
-                                <br>
-                                        
-                                        
-                                <span class="ml-12">location ~ /\.(?!well-known).* {</span>
-                                    <span class="ml-24">deny all;</span>
-                                <span class="ml-12">}</span>
-                            <span>}</span>
-                        </code>
-					</div>
+                            <br>
+                                    
+                                    
+                            <span class="code_indent_lvl_1">location ~ /\.(?!well-known).* {</span>
+                                <span class="code_indent_lvl_2">deny all;</span>
+                            <span class="code_indent_lvl_1">}</span>
+                        <span>}</span>
+                    </div>
 
                     <p>Next, check if the Nginx configuration is correct.</p>
 
-                    <div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50">
-							<span>sudo nginx -t</span>
-						</code>
-					</div>
+                    <div class="code_block">
+                        <span>sudo nginx -t</span>
+                    </div>
 
-                    <div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50 flex flex-col">
-							<span class="text-gray-500">Output:</span>
-							<span>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span>
-							<span>nginx: configuration file /etc/nginx/nginx.conf test is successful</span>
-						</code>
-					</div>
+                    <div class="code_block">
+                        <span class="code_terminal_output">Output:</span>
+                        <span>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span>
+                        <span>nginx: configuration file /etc/nginx/nginx.conf test is successful</span>
+                    </div>
 
                     <p>If everything is ok, restart the Nginx service.</p>
 
-                    <div class="w-full bg-terminal text-base p-4">
-						<code class="text-gray-50">
-							<span>sudo systemctl restart nginx</span>
-						</code>
-					</div>
+                    <div class="code_block">
+                        <span>sudo systemctl restart nginx</span>
+                    </div>
 
                     <p>Now, if you visit your project address it should work with a secure transfer protocol (HTTPS)</p>
 
                     <div>
-                        <img src="data:image/png;base64,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" alt="HTTPS Working image">
+                        <img src="./images/blog/https-working.png" alt="HTTPS Working image">
                     </div>
-				</div>
+                </div>
 
-				<div class="space-y-4">
+                <div class="article_section">
                     <p>That's it, now you can work on your project locally with the HTTPS protocol.</p>
-				</div>
-			</div>
-		</div>
-	</div>
+                </div>
+            </article>
+        </main>
+        <footer class="h-16 flex flex-col items-center justify-center">
+            <p>
+                Copyright © <script>document.write(new Date().getFullYear())</script>, <a href="https://vojislavd.com" class="hover:underline">Vojislav Dragicevic</a>
+            </p>
+            <p>All Rights Reserved</p>
+        </footer>
+    </div>
 </body>
 </html>
